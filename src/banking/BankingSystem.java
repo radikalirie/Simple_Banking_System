@@ -17,7 +17,7 @@ public class BankingSystem {
                     createAnAccount(fileName);
                     break;
                 case 2:
-                    logIntoAccount();
+                    logIntoAccount(fileName);
                     break;
                 case 0:
                     System.out.println("Bye!");
@@ -42,13 +42,13 @@ public class BankingSystem {
         System.out.println();
     }
 
-    public void logIntoAccount() {
+    public void logIntoAccount(String fileName) {
         System.out.println("Enter your card number:");
         String enteredNumber = scanner.next();
         System.out.println("Enter your PIN:");
         String enteredPin = scanner.next();
 
-        int id = DatabaseOperator.findInDatabase(enteredNumber, enteredPin);
+        int id = DatabaseOperator.findInDatabase(enteredNumber, enteredPin, fileName);
         if (id == -1) {
             System.out.println("Wrong card number or PIN!");
             System.out.println();

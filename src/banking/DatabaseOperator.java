@@ -43,8 +43,8 @@ public class DatabaseOperator {
         }
     }
 
-    public static int findInDatabase(String enteredNumber, String enteredPin) {
-        String url = "jdbc:sqlite:card.s3db";
+    public static int findInDatabase(String enteredNumber, String enteredPin, String fileName) {
+        String url = "jdbc:sqlite:" + fileName;
         dataSource.setUrl(url);
         try (Connection connection = dataSource.getConnection()) {
             try (Statement statement = connection.createStatement()) {
